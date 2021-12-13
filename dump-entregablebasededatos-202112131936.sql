@@ -51,10 +51,10 @@ CREATE TABLE `categorynotes` (
   `note_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `notas_categorias_FK` (`note_id`),
-  KEY `notas_categorias_FK_1` (`category_id`),
-  CONSTRAINT `notas_categorias_FK` FOREIGN KEY (`note_id`) REFERENCES `notes` (`id`),
-  CONSTRAINT `notas_categorias_FK_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
+  KEY `categorynotes_FK` (`note_id`),
+  KEY `categorynotes_FK_1` (`category_id`),
+  CONSTRAINT `categorynotes_FK` FOREIGN KEY (`note_id`) REFERENCES `notes` (`id`),
+  CONSTRAINT `categorynotes_FK_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -84,8 +84,8 @@ CREATE TABLE `notes` (
   `description` text NOT NULL,
   `deleted` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `notas_FK` (`user_id`),
-  CONSTRAINT `notas_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  KEY `notes_FK` (`user_id`),
+  CONSTRAINT `notes_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -120,7 +120,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Franco Armani','francoarmani@gmail.com'),(2,'Gonzalo Montiel','gonzalomontiel@hotmail.com'),(3,'Marcos Acuña','marcosacuña@hotmail.com'),(4,'Leandro Paredes','Lleandroparedes@hotmail.com'),(5,'Lautaro Martínez','lautaromartínez@hotmail.com'),(6,'Lionel Messi','lionelmessi@gmail.com'),(7,'Sergio Agüero','sergioagüero@hotmail.com'),(8,'Ángel Di María','angeldimaria@hotmail.com'),(9,'Julián Álvarez','julianalvarez@hotmail.com'),(10,'Juan Foyth','juanfoyth@hotmail.com');
+INSERT INTO `users` VALUES (1,'Franco Armani','francoarmani@gmail.com'),(2,'Gonzalo Montiel','gonzalomontiel@hotmail.com'),(3,'Marcos Acuna','marcosacuna@hotmail.com'),(4,'Leandro Paredes','Lleandroparedes@hotmail.com'),(5,'Lautaro Martínez','lautaromartínez@hotmail.com'),(6,'Lionel Messi','lionelmessi@gmail.com'),(7,'Sergio Agüero','sergioagüero@hotmail.com'),(8,'Ángel Di María','angeldimaria@hotmail.com'),(9,'Julián Álvarez','julianalvarez@hotmail.com'),(10,'Juan Foyth','juanfoyth@hotmail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
